@@ -1,0 +1,22 @@
+[
+  {
+    "id": "women",
+    "name": "Women",
+    "description": "Everyday pieces, dresses, and light layers."
+  },
+  {
+    "id": "men",
+    "name": "Men",
+    "description": "Clean essentials, shirts, jackets, and trousers."
+  },
+  {
+    "id": "accessories",
+    "name": "Accessories",
+    "description": "Bags, belts, scarves, and finishing touches."
+  },
+  {
+    "id": "footwear",
+    "name": "Footwear",
+    "description": "Comfortable shoes for daily styling."
+  }
+]
