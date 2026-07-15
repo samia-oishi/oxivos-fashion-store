@@ -9,6 +9,7 @@
     "sizes": ["S", "M", "L"],
     "inStock": true,
     "featured": true,
+    "newArrival": true,
     "description": "Soft cotton t-shirt with a relaxed fit for everyday comfort."
   },
   {
@@ -21,6 +22,7 @@
     "sizes": ["S", "M", "L"],
     "inStock": true,
     "featured": true,
+    "newArrival": true,
     "description": "Lightweight floral midi dress suitable for casual and weekend outings."
   },
   {
@@ -33,6 +35,7 @@
     "sizes": ["S", "M", "L", "XL"],
     "inStock": true,
     "featured": false,
+    "newArrival": false,
     "description": "Breathable linen shirt designed with an oversized silhouette."
   },
   {
@@ -45,6 +48,7 @@
     "sizes": ["S", "M", "L"],
     "inStock": true,
     "featured": false,
+    "newArrival": false,
     "description": "Comfortable high-waist trousers with a modern wide-leg fit."
   },
   {
@@ -57,6 +61,7 @@
     "sizes": ["M", "L", "XL"],
     "inStock": true,
     "featured": true,
+    "newArrival": true,
     "description": "Timeless oxford shirt suitable for office and smart casual wear."
   },
   {
@@ -69,6 +74,7 @@
     "sizes": ["M", "L", "XL"],
     "inStock": true,
     "featured": false,
+    "newArrival": false,
     "description": "Soft cotton polo shirt with a clean slim fit."
   },
   {
@@ -81,6 +87,7 @@
     "sizes": ["M", "L", "XL"],
     "inStock": true,
     "featured": true,
+    "newArrival": true,
     "description": "Classic denim jacket built for everyday layering."
   },
   {
@@ -93,6 +100,7 @@
     "sizes": ["M", "L", "XL"],
     "inStock": true,
     "featured": false,
+    "newArrival": false,
     "description": "Comfortable jogger pants with utility cargo pockets."
   },
   {
@@ -105,6 +113,7 @@
     "sizes": ["One Size"],
     "inStock": true,
     "featured": false,
+    "newArrival": true,
     "description": "Minimal crossbody bag crafted for daily essentials."
   },
   {
@@ -117,6 +126,7 @@
     "sizes": ["One Size"],
     "inStock": true,
     "featured": false,
+    "newArrival": false,
     "description": "Spacious canvas tote bag perfect for everyday use."
   },
   {
@@ -129,6 +139,7 @@
     "sizes": ["M", "L", "XL"],
     "inStock": true,
     "featured": false,
+    "newArrival": false,
     "description": "Premium leather belt with a timeless buckle design."
   },
   {
@@ -141,6 +152,7 @@
     "sizes": ["One Size"],
     "inStock": true,
     "featured": false,
+    "newArrival": true,
     "description": "Soft woven scarf that complements every outfit."
   },
   {
@@ -152,7 +164,8 @@
     "rating": 4.9,
     "sizes": ["39", "40", "41", "42", "43"],
     "inStock": true,
-    "featured": true,
+    "featured": false,
+    "newArrival": true,
     "description": "Versatile sneakers designed for everyday comfort."
   },
   {
@@ -165,6 +178,7 @@
     "sizes": ["40", "41", "42", "43"],
     "inStock": true,
     "featured": false,
+    "newArrival": false,
     "description": "Elegant leather loafers suitable for formal and casual occasions."
   },
   {
@@ -177,6 +191,7 @@
     "sizes": ["39", "40", "41", "42", "43"],
     "inStock": false,
     "featured": false,
+    "newArrival": true,
     "description": "Lightweight running shoes offering comfort throughout the day."
   },
   {
@@ -189,6 +204,7 @@
     "sizes": ["39", "40", "41", "42"],
     "inStock": true,
     "featured": false,
+    "newArrival": false,
     "description": "Easy-to-wear sandals designed for everyday comfort."
   }
 ]

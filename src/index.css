@@ -1,1 +1,27 @@
+@import "react-toastify/dist/ReactToastify.css";
 @import "tailwindcss";
+
+.price-range {
+  pointer-events: none;
+}
+
+.price-range::-webkit-slider-thumb {
+  appearance: none;
+  pointer-events: auto;
+  height: 14px;
+  width: 14px;
+  border-radius: 9999px;
+  border: 2px solid #ef4444;
+  background: white;
+  cursor: pointer;
+}
+
+.price-range::-moz-range-thumb {
+  pointer-events: auto;
+  height: 14px;
+  width: 14px;
+  border-radius: 9999px;
+  border: 2px solid #ef4444;
+  background: white;
+  cursor: pointer;
+}
