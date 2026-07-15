@@ -24,7 +24,7 @@ export const homeLoader = async () => {
 
   return {
     categories,
-    featuredProducts: products.filter((product) => product.isFeatured),
+    featuredProducts: products.filter((product) => product.featured),
   };
 };
 
@@ -39,7 +39,7 @@ export const productsLoader = async () => {
 
 export const productDetailsLoader = async ({ params }) => {
   const products = await loadJson("/products.json");
-  const product = products.find((item) => item.id === params.productId);
+  const product = products.find((item) => String(item.id) === params.productId);
 
   if (!product) {
     throw new Response("Product not found", { status: 404 });

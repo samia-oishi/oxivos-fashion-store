@@ -22,6 +22,12 @@ export const Home = () => {
                 <p className="mt-2 text-sm text-gray-600">
                   {category.description}
                 </p>
+                <Link
+                  to={`/products?category=${category.id}`}
+                  className="mt-4 inline-block text-sm font-medium underline"
+                >
+                  Shop {category.name}
+                </Link>
               </div>
             ))}
           </div>
