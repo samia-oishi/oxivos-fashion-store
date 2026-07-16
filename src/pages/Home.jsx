@@ -78,23 +78,23 @@ export const Home = () => {
           <p className="text-sm font-medium uppercase tracking-[0.28em]">
             New season essentials
           </p>
-          <h1 className="mt-6 max-w-3xl text-5xl font-semibold leading-tight sm:text-6xl">
+          <h1 className="mt-6 max-w-3xl text-4xl font-semibold leading-tight sm:text-6xl">
             Luxury In Every Stitch.
           </h1>
           <p className="mt-6 max-w-xl text-sm leading-6">
             Discover refined everyday pieces designed for comfort, confidence,
             and modern style.
           </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
+          <div className="mt-10 flex w-full max-w-sm flex-col justify-center gap-4 sm:max-w-none sm:flex-row sm:flex-wrap">
             <Link
               to="/products"
-              className="inline-flex h-12 items-center rounded-md bg-white px-7 text-sm font-semibold text-black shadow-[0_10px_24px_rgba(0,0,0,0.16)] transition-colors duration-200 hover:bg-[#f6efe6]"
+              className="inline-flex h-12 items-center justify-center rounded-md bg-white px-7 text-sm font-semibold text-black shadow-[0_10px_24px_rgba(0,0,0,0.16)] transition-colors duration-200 hover:bg-[#f6efe6]"
             >
               Shop now
             </Link>
             <Link
               to="/products?newArrival=true"
-              className="inline-flex h-12 items-center rounded-md border border-white px-7 text-sm font-semibold text-white transition-colors duration-200 hover:bg-white hover:text-black"
+              className="inline-flex h-12 items-center justify-center rounded-md border border-white px-7 text-sm font-semibold text-white transition-colors duration-200 hover:bg-white hover:text-black"
             >
               New arrivals
             </Link>
@@ -206,25 +206,27 @@ export const Home = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-        className="grid gap-6 bg-[#f6efe6] px-6 py-10 text-center md:grid-cols-3"
+        className="bg-[#f6efe6] px-6 py-10"
       >
-        <div>
-          <h3 className="font-semibold">Sustainable Materials</h3>
-          <p className="mt-2 text-sm text-gray-600">
-            Thoughtful fabrics selected for everyday wear.
-          </p>
-        </div>
-        <div>
-          <h3 className="font-semibold">Local Delivery Support</h3>
-          <p className="mt-2 text-sm text-gray-600">
-            Easy shopping experience from cart to checkout.
-          </p>
-        </div>
-        <div>
-          <h3 className="font-semibold">Simple Return Policy</h3>
-          <p className="mt-2 text-sm text-gray-600">
-            Customer-friendly service for confident buying.
-          </p>
+        <div className="mx-auto grid max-w-6xl gap-4 sm:grid-cols-3">
+          <div className="rounded-2xl bg-white px-5 py-6 text-center shadow-[0_10px_24px_rgba(0,0,0,0.05)]">
+            <h3 className="font-semibold">Sustainable Materials</h3>
+            <p className="mx-auto mt-2 max-w-xs text-sm leading-6 text-gray-600">
+              Thoughtful fabrics selected for everyday wear.
+            </p>
+          </div>
+          <div className="rounded-2xl bg-white px-5 py-6 text-center shadow-[0_10px_24px_rgba(0,0,0,0.05)]">
+            <h3 className="font-semibold">Local Delivery Support</h3>
+            <p className="mx-auto mt-2 max-w-xs text-sm leading-6 text-gray-600">
+              Easy shopping experience from cart to checkout.
+            </p>
+          </div>
+          <div className="rounded-2xl bg-white px-5 py-6 text-center shadow-[0_10px_24px_rgba(0,0,0,0.05)]">
+            <h3 className="font-semibold">Simple Return Policy</h3>
+            <p className="mx-auto mt-2 max-w-xs text-sm leading-6 text-gray-600">
+              Customer-friendly service for confident buying.
+            </p>
+          </div>
         </div>
       </motion.div>
 
@@ -273,7 +275,7 @@ export const Home = () => {
         viewport={{ once: true, amount: 0.2 }}
         className="mx-auto max-w-6xl px-6 py-16"
       >
-        <div className="flex items-end justify-between gap-4">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 className="text-3xl font-semibold">New Collection</h2>
             <p className="mt-2 text-sm text-gray-600">
@@ -282,7 +284,7 @@ export const Home = () => {
           </div>
           <Link
             to="/products?newArrival=true"
-            className="inline-flex h-10 items-center rounded-md bg-black px-4 text-sm font-medium text-white shadow-[0_10px_24px_rgba(0,0,0,0.12)] transition-colors duration-200 hover:bg-white hover:text-black"
+            className="inline-flex h-10 w-fit items-center rounded-md bg-black px-4 text-sm font-medium text-white shadow-[0_10px_24px_rgba(0,0,0,0.12)] transition-colors duration-200 hover:bg-white hover:text-black"
           >
             View all
           </Link>
@@ -472,12 +474,12 @@ export const Home = () => {
 
           <form
             onSubmit={handleSubscribe}
-            className="flex rounded-full bg-white p-2 ring-1 ring-[#eadfd4]"
+            className="flex flex-col gap-3 rounded-3xl bg-white p-2 ring-1 ring-[#eadfd4] sm:flex-row sm:rounded-full"
           >
             <input
               type="email"
               placeholder="Enter your email"
-              className="min-w-0 flex-1 bg-transparent px-4 text-sm outline-none"
+              className="h-11 min-w-0 flex-1 bg-transparent px-4 text-sm outline-none"
             />
             <button
               type="submit"

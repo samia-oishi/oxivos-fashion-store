@@ -1,10 +1,13 @@
+import { useState } from "react";
 import { motion } from "motion/react";
 import { FaSearch } from "react-icons/fa";
+import { FaFilter, FaXmark } from "react-icons/fa6";
 import { Link, useLoaderData, useSearchParams } from "react-router";
 import { ProductCard } from "../components/ProductCard";
 
 export const Products = () => {
   const { categories, products } = useLoaderData();
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const lowestPrice = Math.min(...products.map((product) => product.price));
   const highestPrice = Math.max(...products.map((product) => product.price));
@@ -139,10 +142,7 @@ export const Products = () => {
         animate="visible"
         className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:py-16"
       >
-        <p className="text-xs font-medium uppercase tracking-[0.28em] text-gray-500">
-          Shop the edit
-        </p>
-        <h1 className="mt-4 text-4xl font-semibold leading-tight sm:text-5xl">
+        <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">
           Shop
         </h1>
         <p className="mt-4 max-w-2xl text-sm leading-6 text-gray-600">
@@ -151,13 +151,22 @@ export const Products = () => {
             : "Browse refined pieces across clothing, accessories, and footwear."}
         </p>
 
+        <button
+          type="button"
+          onClick={() => setIsFilterOpen(true)}
+          className="mt-8 inline-flex h-11 items-center gap-2 rounded-md bg-black px-5 text-sm font-semibold text-white lg:hidden"
+        >
+          <FaFilter />
+          Filters
+        </button>
+
         <div className="mt-10 grid gap-8 lg:grid-cols-[240px_1fr]">
           <motion.aside
             variants={sectionAnimation}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="self-start rounded-md bg-[#f6efe6] p-5 shadow-[0_14px_35px_rgba(0,0,0,0.06)] lg:sticky lg:top-8"
+            className="hidden self-start rounded-md bg-[#f6efe6] p-5 shadow-[0_14px_35px_rgba(0,0,0,0.06)] lg:sticky lg:top-8 lg:block"
           >
             <h2 className="text-lg font-semibold">Filters</h2>
 
@@ -278,8 +287,7 @@ export const Products = () => {
             <motion.div
               variants={sectionAnimation}
               initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
+              animate="visible"
               className="grid gap-4 rounded-md bg-[#f6efe6] p-5 shadow-[0_14px_35px_rgba(0,0,0,0.06)] sm:grid-cols-2"
             >
               <label>
@@ -319,8 +327,7 @@ export const Products = () => {
               <motion.div
                 variants={sectionAnimation}
                 initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
+                animate="visible"
                 className="mt-8 rounded-md bg-white p-10 text-center shadow-[0_14px_35px_rgba(0,0,0,0.06)]"
               >
                 <p className="text-gray-600">No products found.</p>
@@ -329,8 +336,7 @@ export const Products = () => {
               <motion.div
                 variants={gridAnimation}
                 initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.1 }}
+                animate="visible"
                 className="mt-8 grid items-stretch gap-6 sm:grid-cols-2 xl:grid-cols-3"
               >
                 {visibleProducts.map((product) => (
@@ -346,6 +352,146 @@ export const Products = () => {
             )}
           </div>
         </div>
+
+        {isFilterOpen && (
+          <div className="fixed inset-0 z-50 lg:hidden">
+            <button
+              type="button"
+              className="absolute inset-0 bg-black/40"
+              onClick={() => setIsFilterOpen(false)}
+              aria-label="Close filters"
+            />
+
+            <div className="relative ml-auto h-full w-80 max-w-[86vw] overflow-y-auto bg-[#f6efe6] px-5 py-6 shadow-[0_20px_60px_rgba(0,0,0,0.2)]">
+              <div className="mb-6 flex items-center justify-between">
+                <h2 className="text-xl font-semibold">Shop Filters</h2>
+                <button
+                  type="button"
+                  onClick={() => setIsFilterOpen(false)}
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white"
+                  aria-label="Close filters"
+                >
+                  <FaXmark />
+                </button>
+              </div>
+
+              {categories.length > 0 && (
+                <div>
+                  <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-gray-500">
+                    Categories
+                  </h3>
+                  <div className="mt-4 flex flex-col gap-2">
+                    <Link
+                      to={getFilterUrl("category", "")}
+                      onClick={() => setIsFilterOpen(false)}
+                      className={`flex h-11 items-center rounded-md border border-[#d8c8b8] px-4 text-sm transition-colors duration-200 ${
+                        !selectedCategory
+                          ? "bg-black text-white"
+                          : "bg-white/60 text-gray-700 hover:border-black"
+                      }`}
+                    >
+                      All
+                    </Link>
+                    {categories.map((category) => (
+                      <Link
+                        key={category.id}
+                        to={getFilterUrl("category", category.id)}
+                        onClick={() => setIsFilterOpen(false)}
+                        className={`flex h-11 items-center rounded-md border border-[#d8c8b8] px-4 text-sm transition-colors duration-200 ${
+                          selectedCategory === category.id
+                            ? "bg-black text-white"
+                            : "bg-white/60 text-gray-700 hover:border-black"
+                        }`}
+                      >
+                        {category.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              <div className="mt-8 pt-2">
+                <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-gray-500">
+                  Price
+                </h3>
+                <div className="mt-4">
+                  <div className="flex justify-between text-sm font-medium text-gray-700">
+                    <span>৳{selectedMinPrice}</span>
+                    <span>৳{selectedMaxPrice}</span>
+                  </div>
+
+                  <div className="relative mt-5 h-7">
+                    <div className="absolute top-1/2 h-2 w-full -translate-y-1/2 rounded-full bg-[#e1d7cc]" />
+                    <div
+                      className="absolute top-1/2 h-2 -translate-y-1/2 rounded-full bg-black"
+                      style={{
+                        left: `${minPricePercent}%`,
+                        right: `${100 - maxPricePercent}%`,
+                      }}
+                    />
+                    <input
+                      type="range"
+                      min={lowestPrice}
+                      max={highestPrice}
+                      step="100"
+                      value={selectedMinPrice}
+                      onChange={(event) =>
+                        updatePriceParams("minPrice", event.target.value)
+                      }
+                      className="price-range absolute inset-0 z-10 h-7 w-full appearance-none bg-transparent"
+                      aria-label="Minimum price"
+                    />
+                    <input
+                      type="range"
+                      min={lowestPrice}
+                      max={highestPrice}
+                      step="100"
+                      value={selectedMaxPrice}
+                      onChange={(event) =>
+                        updatePriceParams("maxPrice", event.target.value)
+                      }
+                      className="price-range absolute inset-0 z-20 h-7 w-full appearance-none bg-transparent"
+                      aria-label="Maximum price"
+                    />
+                  </div>
+
+                  {(selectedMinPrice !== lowestPrice ||
+                    selectedMaxPrice !== highestPrice) && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const nextParams = new URLSearchParams(searchParams);
+                        nextParams.delete("minPrice");
+                        nextParams.delete("maxPrice");
+                        setSearchParams(nextParams);
+                      }}
+                      className="mt-4 text-sm underline"
+                    >
+                      Clear price
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              <div className="mt-8 pt-2">
+                <Link
+                  to={getFilterUrl(
+                    "newArrival",
+                    selectedNewArrival ? "" : "true",
+                  )}
+                  onClick={() => setIsFilterOpen(false)}
+                  className={`flex h-11 items-center rounded-md border border-[#d8c8b8] px-4 text-sm transition-colors duration-200 ${
+                    selectedNewArrival
+                      ? "bg-black text-white"
+                      : "bg-white/60 text-gray-700 hover:border-black"
+                  }`}
+                >
+                  New arrivals
+                </Link>
+              </div>
+            </div>
+          </div>
+        )}
       </motion.div>
     </section>
   );
