@@ -9,8 +9,12 @@ export const Root = () => {
   return (
     <div className="flex min-h-screen flex-col">
       <Navbar />
-      <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-8">
-        {isLoading && <p className="mb-4 text-sm text-gray-600">Loading...</p>}
+      <main className="flex-1">
+        {isLoading && (
+          <p className="mx-auto max-w-6xl px-4 py-4 text-sm text-gray-600">
+            Loading...
+          </p>
+        )}
         <Outlet />
       </main>
       <Footer />

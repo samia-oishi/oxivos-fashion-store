@@ -24,6 +24,7 @@ export const homeLoader = async () => {
 
   return {
     categories,
+    products,
     featuredProducts: products.filter((product) => product.featured),
   };
 };

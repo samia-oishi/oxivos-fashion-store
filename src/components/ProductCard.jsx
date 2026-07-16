@@ -7,27 +7,39 @@ export const ProductCard = ({ product }) => {
   const hasImage = product.image?.trim();
 
   return (
-    <article className="border p-4">
-      {hasImage ? (
-        <img
-          src={product.image}
-          alt={product.name}
-          className="aspect-square w-full object-cover"
-        />
-      ) : (
-        <div className="flex aspect-square w-full items-center justify-center bg-gray-100 text-sm text-gray-500">
-          Product image
+    <article className="group flex h-full flex-col overflow-hidden rounded-md border border-[#e3d6c8] bg-white transition duration-200 hover:-translate-y-1">
+      <div className="overflow-hidden">
+        {hasImage ? (
+          <img
+            src={product.image}
+            alt={product.name}
+            className="aspect-[3/4] w-full object-cover transition-transform duration-200 group-hover:scale-[1.03]"
+          />
+        ) : (
+          <div className="flex aspect-[3/4] w-full items-center justify-center bg-gray-100 text-sm text-gray-500">
+            Product image
+          </div>
+        )}
+      </div>
+      <div className="flex flex-1 flex-col p-4">
+        <p className="text-xs uppercase tracking-[0.18em] text-gray-500">
+          {product.category}
+        </p>
+        <h2 className="mt-2 text-lg font-semibold leading-snug">
+          {product.name}
+        </h2>
+        <div className="mt-2 flex items-center justify-between gap-3 border-y border-[#eadfd4] py-2">
+          <p className="text-lg font-semibold">৳{product.price}</p>
+          <p className="text-xs text-gray-500">Rating: {product.rating}</p>
         </div>
-      )}
-      <p className="text-sm text-gray-600">{product.category}</p>
-      <h2 className="mt-2 text-xl font-semibold">{product.name}</h2>
-      <p className="mt-2 text-gray-700">৳{product.price}</p>
-      <p className="mt-1 text-sm text-gray-600">Rating: {product.rating}</p>
-      <p className="mt-3 text-sm text-gray-600">{product.description}</p>
-      <div className="mt-4 flex flex-wrap items-center gap-3">
+        <p className="text-two-lines mt-3 text-sm leading-6 text-gray-600">
+          {product.description}
+        </p>
+      </div>
+      <div className="flex border-t border-[#eadfd4]">
         <Link
           to={`/products/${product.id}`}
-          className="text-sm font-medium underline"
+          className="flex h-12 flex-1 items-center justify-center px-4 text-sm font-medium transition-colors duration-200 hover:bg-[#f6efe6]"
         >
           View details
         </Link>
@@ -35,7 +47,7 @@ export const ProductCard = ({ product }) => {
           type="button"
           onClick={() => addItem(product, defaultSize)}
           disabled={!product.inStock}
-          className="border px-3 py-1 text-sm disabled:cursor-not-allowed disabled:text-gray-400"
+          className="h-12 flex-1 border-l border-[#eadfd4] bg-black px-4 text-sm font-medium text-white transition-colors duration-200 disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-400"
         >
           {product.inStock ? "Add to cart" : "Out of stock"}
         </button>

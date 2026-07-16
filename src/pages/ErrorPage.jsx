@@ -5,7 +5,7 @@ export const ErrorPage = () => {
   const isNotFound = error?.status === 404;
 
   return (
-    <section>
+    <section className="mx-auto max-w-6xl px-4 py-8">
       <h1 className="text-3xl font-semibold">
         {isNotFound ? "Page not found" : "Something went wrong"}
       </h1>
