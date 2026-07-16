@@ -6,6 +6,7 @@ export const ProductDetails = () => {
   const product = useLoaderData();
   const { addItem } = useCart();
   const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
+  const hasImage = product.image?.trim();
 
   return (
     <section>
@@ -15,7 +16,7 @@ export const ProductDetails = () => {
 
       <div className="mt-6 grid gap-8 lg:grid-cols-2">
         <div className="border p-6">
-          {product.image ? (
+          {hasImage ? (
             <img
               src={product.image}
               alt={product.name}

@@ -4,10 +4,11 @@ import { useCart } from "../hooks/useCart";
 export const ProductCard = ({ product }) => {
   const { addItem } = useCart();
   const defaultSize = product.sizes[0];
+  const hasImage = product.image?.trim();
 
   return (
     <article className="border p-4">
-      {product.image ? (
+      {hasImage ? (
         <img
           src={product.image}
           alt={product.name}

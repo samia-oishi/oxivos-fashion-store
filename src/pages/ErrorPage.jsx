@@ -12,7 +12,7 @@ export const ErrorPage = () => {
       <p className="mt-2 text-gray-700">
         {isNotFound
           ? "The page you are looking for does not exist."
-          : "Please try again or go back to the home page."}
+          : "The store data could not be loaded. Please try again or go back to the home page."}
       </p>
       <Link to="/" className="mt-4 inline-block underline">
         Back to home
