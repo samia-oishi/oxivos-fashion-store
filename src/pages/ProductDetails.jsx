@@ -27,7 +27,7 @@ export const ProductDetails = () => {
       >
         <Link
           to="/products"
-          className="inline-flex h-10 items-center rounded-md border border-[#d8c8b8] px-4 text-sm font-medium transition-colors duration-200 hover:border-black"
+            className="inline-flex h-10 items-center rounded-md border border-[#d8c8b8] bg-white px-4 text-sm font-medium shadow-[0_8px_24px_rgba(0,0,0,0.05)] transition-colors duration-200 hover:border-black"
         >
           Back to products
         </Link>
@@ -40,7 +40,7 @@ export const ProductDetails = () => {
             viewport={{ once: true, amount: 0.25 }}
             className="self-start lg:sticky lg:top-8"
           >
-            <div className="overflow-hidden rounded-md border border-[#e3d6c8] bg-white">
+            <div className="overflow-hidden rounded-md bg-white shadow-[0_18px_45px_rgba(0,0,0,0.08)]">
               {hasImage ? (
                 <img
                   src={product.image}
@@ -60,7 +60,7 @@ export const ProductDetails = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.25 }}
-            className="self-start rounded-md border border-[#e3d6c8] bg-white p-6 sm:p-8"
+            className="self-start rounded-md bg-white p-6 shadow-[0_18px_45px_rgba(0,0,0,0.08)] sm:p-8"
           >
             <div className="flex flex-wrap items-center justify-between gap-3">
               <p className="text-xs font-medium uppercase tracking-[0.2em] text-gray-500">
@@ -81,7 +81,7 @@ export const ProductDetails = () => {
               {product.name}
             </h1>
 
-            <div className="mt-6 flex flex-wrap items-center gap-4 border-y border-[#eadfd4] py-5">
+            <div className="mt-6 flex flex-wrap items-center gap-4">
               <p className="text-3xl font-semibold">৳{product.price}</p>
               <p className="text-sm text-gray-600">Rating: {product.rating}</p>
             </div>
@@ -116,12 +116,12 @@ export const ProductDetails = () => {
               type="button"
               onClick={() => addItem(product, selectedSize)}
               disabled={!product.inStock}
-              className="mt-9 h-12 w-full rounded-md bg-black px-4 text-sm font-semibold text-white transition-colors duration-200 hover:bg-gray-800 disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-400"
+              className="mt-9 h-12 w-full rounded-md bg-black px-4 text-sm font-semibold text-white shadow-[0_10px_24px_rgba(0,0,0,0.18)] transition-colors duration-200 hover:bg-gray-800 disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-400 disabled:shadow-none"
             >
               {product.inStock ? "Add to cart" : "Out of stock"}
             </button>
 
-            <div className="mt-8 grid gap-4 border-t border-[#eadfd4] pt-6 text-sm text-gray-600 sm:grid-cols-2">
+            <div className="mt-8 grid gap-4 text-sm text-gray-600 sm:grid-cols-2">
               <p>Free delivery on selected new arrivals.</p>
               <p>Easy size selection before adding to cart.</p>
             </div>

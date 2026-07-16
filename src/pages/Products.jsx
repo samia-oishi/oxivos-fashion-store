@@ -137,13 +137,13 @@ export const Products = () => {
         variants={sectionAnimation}
         initial="hidden"
         animate="visible"
-        className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:py-16"
+        className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:py-16"
       >
         <p className="text-xs font-medium uppercase tracking-[0.28em] text-gray-500">
           Shop the edit
         </p>
         <h1 className="mt-4 text-4xl font-semibold leading-tight sm:text-5xl">
-          Products
+          Shop
         </h1>
         <p className="mt-4 max-w-2xl text-sm leading-6 text-gray-600">
           {activeCategory
@@ -151,13 +151,13 @@ export const Products = () => {
             : "Browse refined pieces across clothing, accessories, and footwear."}
         </p>
 
-        <div className="mt-10 grid gap-8 lg:grid-cols-[260px_1fr]">
+        <div className="mt-10 grid gap-8 lg:grid-cols-[240px_1fr]">
           <motion.aside
             variants={sectionAnimation}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="self-start rounded-md border border-[#e3d6c8] bg-[#f6efe6] p-5 lg:sticky lg:top-8"
+            className="self-start rounded-md bg-[#f6efe6] p-5 shadow-[0_14px_35px_rgba(0,0,0,0.06)] lg:sticky lg:top-8"
           >
             <h2 className="text-lg font-semibold">Filters</h2>
 
@@ -194,7 +194,7 @@ export const Products = () => {
               </div>
             )}
 
-            <div className="mt-8 border-t border-[#e3d6c8] pt-7">
+            <div className="mt-8 pt-2">
               <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-gray-500">
                 Price
               </h3>
@@ -257,7 +257,7 @@ export const Products = () => {
               </div>
             </div>
 
-            <div className="mt-8 border-t border-[#e3d6c8] pt-7">
+            <div className="mt-8 pt-2">
               <Link
                 to={getFilterUrl(
                   "newArrival",
@@ -280,7 +280,7 @@ export const Products = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
-              className="grid gap-4 rounded-md border border-[#e3d6c8] bg-[#f6efe6] p-5 sm:grid-cols-2"
+              className="grid gap-4 rounded-md bg-[#f6efe6] p-5 shadow-[0_14px_35px_rgba(0,0,0,0.06)] sm:grid-cols-2"
             >
               <label>
                 <span className="text-sm font-medium">Search products</span>
@@ -321,7 +321,7 @@ export const Products = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
-                className="mt-8 rounded-md border border-[#e3d6c8] bg-white p-10 text-center"
+                className="mt-8 rounded-md bg-white p-10 text-center shadow-[0_14px_35px_rgba(0,0,0,0.06)]"
               >
                 <p className="text-gray-600">No products found.</p>
               </motion.div>
@@ -331,7 +331,7 @@ export const Products = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.1 }}
-                className="mt-8 grid items-stretch gap-7 sm:grid-cols-2 xl:grid-cols-3"
+                className="mt-8 grid items-stretch gap-6 sm:grid-cols-2 xl:grid-cols-3"
               >
                 {visibleProducts.map((product) => (
                   <motion.div

@@ -69,7 +69,7 @@ export const Cart = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="mt-8 rounded-md border border-[#e3d6c8] bg-[#f6efe6] p-10 text-center sm:p-14"
+            className="mt-8 rounded-md bg-[#f6efe6] p-10 text-center shadow-[0_14px_35px_rgba(0,0,0,0.06)] sm:p-14"
           >
             <p className="text-lg font-medium">Your cart is empty.</p>
             <p className="mx-auto mt-3 max-w-sm text-sm leading-6 text-gray-600">
@@ -95,7 +95,7 @@ export const Cart = () => {
               {cartItems.map((item) => (
                 <div
                   key={item.cartItemId}
-                  className="rounded-md border border-[#e3d6c8] bg-white p-4 sm:p-5"
+                  className="rounded-md bg-white p-4 shadow-[0_12px_30px_rgba(0,0,0,0.06)] sm:p-5"
                 >
                   <div className="grid gap-4 sm:grid-cols-[96px_1fr_auto] sm:items-center">
                     {item.image ? (
@@ -157,10 +157,10 @@ export const Cart = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
-              className="self-start rounded-md border border-[#e3d6c8] bg-[#f6efe6] p-6 lg:sticky lg:top-8"
+              className="self-start rounded-md bg-[#f6efe6] p-6 shadow-[0_16px_40px_rgba(0,0,0,0.08)] lg:sticky lg:top-8"
             >
               <h2 className="text-xl font-semibold">Order Summary</h2>
-              <div className="mt-5 space-y-3 border-y border-[#d8c8b8] py-5 text-sm text-gray-600">
+              <div className="mt-5 space-y-3 py-2 text-sm text-gray-600">
                 <div className="flex items-center justify-between">
                   <span>Items</span>
                   <span>{cartItems.length}</span>
@@ -178,7 +178,7 @@ export const Cart = () => {
                 <button
                   type="button"
                   onClick={() => setIsCheckoutOpen(true)}
-                  className="h-12 rounded-md bg-black px-4 text-sm font-semibold text-white transition-colors duration-200 hover:bg-gray-800"
+                  className="h-12 rounded-md bg-black px-4 text-sm font-semibold text-white shadow-[0_10px_24px_rgba(0,0,0,0.16)] transition-colors duration-200 hover:bg-gray-800"
                 >
                   Checkout
                 </button>
@@ -200,7 +200,7 @@ export const Cart = () => {
               variants={sectionAnimation}
               initial="hidden"
               animate="visible"
-              className="w-full max-w-lg rounded-md border border-[#e3d6c8] bg-white p-6 shadow-xl sm:p-8"
+              className="w-full max-w-lg rounded-md bg-white p-6 shadow-xl sm:p-8"
             >
               <div className="flex items-center justify-between gap-4">
                 <h2 className="text-2xl font-semibold">Shipping Info</h2>
